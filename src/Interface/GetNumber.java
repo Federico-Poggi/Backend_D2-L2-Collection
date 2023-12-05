@@ -3,6 +3,5 @@ package Interface;
 public interface GetNumber {
 
 
-    void GetNumber();
-    void GetString();
+     void GetNumber();
 }
