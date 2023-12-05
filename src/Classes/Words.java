@@ -1,35 +1,33 @@
 package Classes;
-import java.util.HashSet;
+import Interface.GetNumber;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.Set;
 
-public class Words{
+public class Words implements GetNumber {
+//    ----VARIABILI----
+    Scanner scan=new Scanner(System.in);
     int number;
-    String word;
-    public Words(int number, String word){
-        this.number=number;
-        this.word=word;
-    }
-    public static void getNumber(){
+    static int numberToInsert;
+    static String wordToInsert;
+    public static String word;
+    public static String[] words;
+
+//    ----VARIABILI.FINE----
+    public Words(){
+    };
+    public static void newStart(){
         Scanner scan=new Scanner(System.in);
-        System.out.println("Inserisci un intero:\n");
-        int numWord=scan.nextInt();
-        System.out.println("Inserisci " +numWord+" parole");
-        Set<Words> words= new HashSet<>();
-        String word;
-        for (int i = 0; i<numWord; i++) {
-            System.out.println("Ancora " + numWord + " parole");
-            word = scan.nextLine();
-            Words words1 =new Words(i , word);
-            words.add(words1);
+        new Words().GetNumber();
+        words=new String[numberToInsert];
+        for (int i = 0; i <words.length; i++) {
+            System.out.println("Inserisi una parola:");
+            wordToInsert=scan.nextLine();
+            words[i]=wordToInsert;
         }
-
-
-
-
-        System.out.println(words.toString());
-        System.out.println("Fatto");
+        System.out.println(words.length);
     }
+
 
     @Override
     public String toString() {
@@ -37,4 +35,23 @@ public class Words{
                 "word='" + word + '\'' +
                 '}';
     }
+
+    @Override
+    public void GetNumber(){
+        try {
+            System.out.println("Inserisci un numero intero:");
+            numberToInsert= scan.nextInt();
+            System.out.println(numberToInsert);
+        }catch (InputMismatchException e){
+            System.err.println("Errore tipo variabile");
+        }
+    }
+
+    @Override
+    public void GetString() {
+
+    }
+
+
+
 }
