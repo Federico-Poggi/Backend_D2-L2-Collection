@@ -1,9 +1,10 @@
-import Classes.NumeriInteri;
+;
+import Classes.Words;
 
 public class Main {
     public static void main(String[] args) {
         {
-            NumeriInteri.getNumber();
+            Words.getNumber();
         }
     }
 
