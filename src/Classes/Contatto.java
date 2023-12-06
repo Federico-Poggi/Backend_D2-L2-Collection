@@ -4,11 +4,10 @@ package Classes;
 import Interface.Printagenda;
 import java.util.*;
 
-public class Contatto extends Agenda implements Printagenda {
+public class Contatto extends Agenda implements Printagenda{
     static Map<String,String> agendaMap=new HashMap<>();
-    Scanner scan=new Scanner(System.in);
     boolean conoscente;
-    public Contatto(){};
+    public Contatto(){}
     public Contatto(String cellPhone,String name, boolean conoscente){
         super(cellPhone,name);
         this.conoscente=conoscente;
@@ -36,16 +35,16 @@ public class Contatto extends Agenda implements Printagenda {
         //creo un agenda con chiave=name,e valore=numero di telefono
         boolean confirm = false;
         String remAdd;
-        System.out.println("Add Contatto o Remove Contatto?");
+        agendaMap.put("Gionni","+393339993900");
+        System.out.println("Add Contatto o Remove Contatto?\t Scrive ADD o REM");
         remAdd = scan.nextLine().toUpperCase();
-
         if (remAdd.equals("ADD")) {
             do {
                 insertName();
                 System.out.println("Nome: " + name);
                 System.out.println("Numero di telefono:");
                 randomPhoneNumber();
-                System.out.println("Stai inserendo, è corretto:" + name + " " + numberPhone);
+                System.out.println("Stai inserendo, è corretto?:" + name + " " + numberPhone);
                 System.out.println("Confermi: SI/NO");
                 String yesNo = scan.nextLine().toUpperCase();
                 if (yesNo.equals("SI")) {
@@ -59,8 +58,15 @@ public class Contatto extends Agenda implements Printagenda {
             Contatto contatto = new Contatto();
             contatto.printAgenda();
         }
+        else{
+            System.out.println("Inserisci nome della persona da eliminare:");
+            String name= scan.nextLine();
+            agendaMap.remove(name);
+            new Contatto().printAgenda();
+        }
     }
 
+    /*---Funzione scelta---*/
     static boolean choice(){
         System.out.println("Vuoi inserire un altro contatto: inserisci  SI/NO");
         Scanner scanner=new Scanner(System.in);
