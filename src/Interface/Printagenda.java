@@ -4,8 +4,8 @@ import javax.naming.Name;
 import java.util.HashMap;
 
 public interface Printagenda {
-    void printAgenda();
-    void removeContact();
+    public void printAgenda();
+    public default void removeContact(){};
     HashMap<String,String> removeContct();
-    void start();
+
 }

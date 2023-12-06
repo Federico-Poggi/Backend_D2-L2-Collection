@@ -3,40 +3,23 @@ package Classes;
 import Interface.Printagenda;
 
 import java.util.HashMap;
-import java.util.Random;
 
-abstract class Agenda implements Printagenda {
+public abstract class Agenda {
     /*---ATTRIBUTI---*/
-    protected String numberPhone;
-    protected String name;
+    protected static String numberPhone;
+    protected static String name;
 
     /*--FINE ATTRIBUTI--*/
+
+    public Agenda(){};
     public Agenda(String cellPhone,String name){
-        this.numberPhone=cellPhone;
-        this.name=name;
+        Agenda.numberPhone=cellPhone;
+        Agenda.name =name;
     }
 
 
 
-    @Override
-    public void start() {
 
-    }
-
-    @Override
-    public void printAgenda() {
-
-    }
-
-    @Override
-    public void removeContact() {
-
-    }
-
-    @Override
-    public HashMap<String, String> removeContct() {
-        return null;
-    }
 
 
 }

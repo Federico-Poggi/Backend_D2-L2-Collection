@@ -2,6 +2,7 @@
 import Classes.Contatto;
 import Classes.RandomList;
 import Classes.Words;
+import Interface.Printagenda;
 import com.sun.tools.attach.AgentInitializationException;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
         }*/
 
         {
-            Contatto.randomPhoneNumber();
+            Contatto.start();
         }
     }
 
